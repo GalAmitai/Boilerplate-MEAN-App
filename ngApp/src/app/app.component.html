@@ -1,0 +1,21 @@
+<div style="width: 800px; margin: 0 auto">
+    <div class="ui attached stackable menu">
+        <div class="ui container">
+          <a class="item" routerLink="/">
+            <i class="home icon"></i> Home
+          </a>
+          <a class="item" *ngIf="!_auth.loggedIn()" routerLink="/login" routerLinkActive="active">
+            <i class="grid layout icon"></i> Login
+          </a>
+          <a class="item" *ngIf="!_auth.loggedIn()" routerLink="/register" routerLinkActive="active">
+            <i class="mail icon"></i> Register
+          </a>
+          <a class="item" *ngIf="_auth.loggedIn()" (click)="_auth.logoutUser()">
+            <i class="mail icon"></i> Logout
+          </a>
+        </div>
+      </div>
+  <div class="ui raised very padded text container segment">
+    <router-outlet></router-outlet>
+  </div>
+</div>
